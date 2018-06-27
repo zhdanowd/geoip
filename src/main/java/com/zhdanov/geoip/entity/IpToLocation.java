@@ -3,11 +3,8 @@ package com.zhdanov.geoip.entity;
 import lombok.Data;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Data
@@ -15,7 +12,6 @@ import static javax.persistence.GenerationType.IDENTITY;
 public class IpToLocation {
 
     @Id
-    @GeneratedValue(strategy = IDENTITY)
     private Long id;
     private Long ipFrom;
     private Long ipTo;

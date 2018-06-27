@@ -2,12 +2,9 @@ package com.zhdanov.geoip.dto;
 
 import com.zhdanov.geoip.entity.IpToLocation;
 import lombok.Data;
-import org.apache.commons.validator.ValidatorException;
-
-import static com.zhdanov.geoip.converter.CanonicalIPv4ToIPv4Converter.convert;
 
 @Data
-public class GeoIpDTO {
+public class GeoIpDto {
     private String canonicalIPv4Representation;
     private String cityName;
     private String countryCode;
@@ -17,12 +14,12 @@ public class GeoIpDTO {
     private Double longitude;
     private String regionName;
 
-    public GeoIpDTO(String canonicalIPv4, IpToLocation ipToLocation) throws ValidatorException {
+    public GeoIpDto(String canonicalIPv4, Long decimalIPv4, IpToLocation ipToLocation) {
         this.canonicalIPv4Representation = canonicalIPv4;
         this.cityName = ipToLocation.getCityName();
         this.countryCode = ipToLocation.getCountryCode();
         this.countryName = ipToLocation.getCountryName();
-        this.IPv4 = convert(canonicalIPv4);
+        this.IPv4 = decimalIPv4;
         this.latitude = ipToLocation.getLatitude();
         this.longitude = ipToLocation.getLongitude();
         this.regionName = ipToLocation.getRegionName();
